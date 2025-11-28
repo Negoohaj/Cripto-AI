@@ -2,6 +2,13 @@
 
 Sistema profissional de análise de criptomoedas com processamento Big Data, Machine Learning e visualizações interativas.
 
+# Contribuidores do Projeto
+
+- **Hugo Arcanjo Jacob** — Documentação, testes, revisão, organização do projeto e suporte geral.
+- **Mohamed** — Desenvolvimento principal do código e modelagem dos algoritmos.
+- **Hector** — Suporte e testes do sistema.
+- **Gabriel** — Suporte e estruturação do repositório.
+
 ---
 
 ## 🚀 Quick Start
