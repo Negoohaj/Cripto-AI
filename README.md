@@ -2,12 +2,14 @@
 
 Sistema profissional de análise de criptomoedas com processamento Big Data, Machine Learning e visualizações interativas.
 
-# Contribuidores do Projeto
+O desenvolvimento deste projeto contou com uma equipe multidisciplinar:
 
-- **Hugo** — Documentação, testes, revisão, organização do projeto e suporte geral.
-- **Mohamed** — Desenvolvimento principal do código e modelagem dos algoritmos.
-- **Hector** — Suporte e testes do sistema.
-- **Gabriel** — Suporte e estruturação do repositório.
+- **Hugo** — responsável pela documentação, estrutura do projeto, testes locais, organização da entrega e revisão geral.
+- **Mohamed** — desenvolvimento principal do código, algoritmos e implementação de ML.
+- **Hector** — suporte, testes e contribuições no fluxo de trabalho.
+- **Gabriel** — revisão, estruturação e testes auxiliares.
+
+Este repositório representa a colaboração conjunta da equipe para a disciplina de Big Data em Python.
 
 ---
 
