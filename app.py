@@ -13,9 +13,9 @@ import sys
 sys.path.insert(0, str(Path(__file__).parent))
 
 from src.data_ingestion import CryptoDataIngestion
-from src.spark_processor import SparkDataProcessor
-from models.prophet_model import CryptoProphetModel, PROPHET_AVAILABLE
-from models.sklearn_model import CryptoMLModel, SKLEARN_AVAILABLE
+# from src.spark_processor import SparkDataProcessor
+# from models.prophet_model import CryptoProphetModel, PROPHET_AVAILABLE
+# from models.sklearn_model import CryptoMLModel, SKLEARN_AVAILABLE
 from visualizations.plotly_charts import CryptoVisualizer, PLOTLY_AVAILABLE
 from modern_theme import MODERN_CSS
 
@@ -249,10 +249,9 @@ def main():
     df_processed = st.session_state.get('df_processed', df)
     
     # Tabs principais
-    tab1, tab2, tab3, tab4 = st.tabs([
+    tab1, tab2, tab4 = st.tabs([
         "📊 Overview",
         "📈 Technical Analysis",
-        "🤖 ML Predictions",
         "📉 Visualizations"
     ])
     
@@ -361,115 +360,7 @@ def main():
         else:
             st.warning("⚠️ Plotly não está disponível. Instale com: pip install plotly")
     
-    # Tab 3: Machine Learning
-    with tab3:
-        st.markdown('<p class="sub-header">🤖 Machine Learning</p>', unsafe_allow_html=True)
-        
-        col1, col2 = st.columns(2)
-        
-        # Prophet
-        with col1:
-            st.markdown("### 🔮 Prophet (Meta)")
-            
-            if not PROPHET_AVAILABLE:
-                st.warning("⚠️ Prophet não está disponível")
-            else:
-                forecast_days = st.slider("Dias para previsão:", 7, 90, 30, key="prophet_days")
-                
-                if st.button("🚀 Treinar Prophet"):
-                    with st.spinner("Treinando modelo Prophet..."):
-                        try:
-                            prophet_model = CryptoProphetModel()
-                            df_prophet = prophet_model.prepare_data(df)
-                            
-                            # Treinar
-                            split_idx = int(len(df_prophet) * 0.8)
-                            df_train = df_prophet[:split_idx]
-                            prophet_model.train(df_train)
-                            
-                            # Prever
-                            forecast = prophet_model.predict(periods=forecast_days)
-                            forecast_summary = prophet_model.get_forecast_summary(forecast_days)
-                            trend_analysis = prophet_model.get_trend_analysis()
-                            
-                            # Exibir resultados
-                            st.success("✅ Modelo treinado com sucesso!")
-                            
-                            st.markdown("#### 📈 Análise de Tendência")
-                            st.write(f"**Direção:** {trend_analysis['direction']}")
-                            st.write(f"**Variação:** {trend_analysis['trend_change_pct']:.2f}%")
-                            
-                            st.markdown("#### 📊 Previsões")
-                            st.dataframe(forecast_summary, use_container_width=True)
-                            
-                            # Visualização
-                            if PLOTLY_AVAILABLE:
-                                visualizer = CryptoVisualizer()
-                                fig_forecast = visualizer.plot_forecast(
-                                    df,
-                                    forecast_summary,
-                                    pred_col='Predicted',
-                                    title="Previsão Prophet"
-                                )
-                                st.plotly_chart(fig_forecast, use_container_width=True)
-                        
-                        except Exception as e:
-                            st.error(f"❌ Erro: {str(e)}")
-        
-        # scikit-learn
-        with col2:
-            st.markdown("### 🤖 scikit-learn")
-            
-            if not SKLEARN_AVAILABLE:
-                st.warning("⚠️ scikit-learn não está disponível")
-            else:
-                model_type = st.selectbox(
-                    "Tipo de modelo:",
-                    ["linear_regression", "ridge", "random_forest"]
-                )
-                
-                forecast_days_ml = st.slider("Dias para previsão:", 1, 14, 7, key="ml_days")
-                
-                if st.button("🚀 Treinar Modelo"):
-                    with st.spinner(f"Treinando modelo {model_type}..."):
-                        try:
-                            ml_model = CryptoMLModel(model_type=model_type)
-                            
-                            # Preparar features
-                            X, y = ml_model.prepare_features(df)
-                            
-                            # Dividir dados
-                            split_idx = int(len(X) * 0.8)
-                            X_train, X_test = X[:split_idx], X[split_idx:]
-                            y_train, y_test = y[:split_idx], y[split_idx:]
-                            
-                            # Treinar
-                            ml_model.train(X_train, y_train)
-                            
-                            # Avaliar
-                            metrics = ml_model.evaluate(X_test, y_test)
-                            
-                            # Prever
-                            forecast_ml = ml_model.predict_next_days(df, days=forecast_days_ml)
-                            
-                            # Exibir resultados
-                            st.success("✅ Modelo treinado com sucesso!")
-                            
-                            st.markdown("#### 📊 Métricas")
-                            for metric, value in metrics.items():
-                                st.write(f"**{metric}:** {value}")
-                            
-                            st.markdown("#### 📈 Previsões")
-                            st.dataframe(forecast_ml, use_container_width=True)
-                            
-                            # Feature importance (se disponível)
-                            if model_type in ['random_forest', 'gradient_boosting']:
-                                st.markdown("#### 🎯 Importância das Features")
-                                importance = ml_model.get_feature_importance()
-                                st.dataframe(importance.head(10), use_container_width=True)
-                        
-                        except Exception as e:
-                            st.error(f"❌ Erro: {str(e)}")
+    # Aba de Machine Learning foi desativada para a versão Light
     
     # Tab 4: Visualizações
     with tab4:
