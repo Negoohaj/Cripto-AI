@@ -1,200 +1,110 @@
-# 📊 Crypto Analytics Platform
+# 💰 Cripto AI — Versão Leve  
+Projeto simples em **Python + Streamlit**, criado para apresentar um dashboard básico voltado ao mercado de criptomoedas com uso de IA.  
+Esta é a **versão leve**, ideal para rodar rapidamente, estudar o código e entender a estrutura geral do projeto.
 
-Sistema profissional de análise de criptomoedas com processamento Big Data, Machine Learning e visualizações interativas.
-
-O desenvolvimento deste projeto contou com uma equipe multidisciplinar:
-
-- **Hugo** — responsável pela documentação, estrutura do projeto, testes locais, organização da entrega e revisão geral.
-- **Mohamed** — desenvolvimento principal do código, algoritmos e implementação de ML.
-- **Hector** — suporte, testes e contribuições no fluxo de trabalho.
-- **Gabriel** — revisão, estruturação e testes auxiliares.
-
-Este repositório representa a colaboração conjunta da equipe para a disciplina de Big Data em Python.
+> 🔗 **Versão completa e profissional do projeto:**  
+> https://github.com/Crypto-AI-BD/Cripto-AI
 
 ---
 
-## 🚀 Quick Start
+## 📌 Funcionalidades Principais
 
-### Instalação
-```powershell
-# 1. Criar ambiente virtual
-python -m venv venv
-.\venv\Scripts\Activate.ps1
+✔ Interface simples em Streamlit  
+✔ Consulta de dados financeiros  
+✔ Visualização gráfica  
+✔ Estrutura enxuta para rodar facilmente em qualquer máquina  
+✔ Código limpo e fácil de entender  
+✔ Sem virtual environment no repositório (boa prática)  
+✔ Apenas dependências essenciais
 
-# 2. Instalar dependências
+---
+
+## 🗂 Tecnologias Utilizadas
+
+- **Python 3.10+**
+- **Streamlit**
+- **yfinance** (ou API utilizada)
+- **Pandas / Numpy**
+- **Matplotlib / Plotly** (se aplicável)
+
+---
+
+## 📁 Estrutura da Versão Leve do Projeto
+
+```
+Cripto-AI/
+│── app.py                # Arquivo principal da aplicação
+│── requirements.txt       # Dependências do projeto
+│── README.md              # Este arquivo
+│── .gitignore             # Ignora venv e arquivos desnecessários
+└── assets/ (opcional)     # Imagens e ícones usados no app
+```
+
+---
+
+## 🚀 Como Rodar a Aplicação Localmente
+
+### 1️⃣ Clone o repositório
+```bash
+git clone https://github.com/Negoohaj/Cripto-AI.git
+```
+
+### 2️⃣ Entre na pasta do projeto
+```bash
+cd Cripto-AI
+```
+
+### 3️⃣ Instale as dependências
+```bash
 pip install -r requirements.txt
+```
 
-# 3. Executar dashboard
+### 4️⃣ Execute o projeto
+```bash
 streamlit run app.py
 ```
 
-Acesse: **http://localhost:8501**
+---
+
+## 📦 Como o Projeto Funciona
+
+A versão leve possui:
+
+- Estrutura mínima  
+- Código direto ao ponto  
+- Fácil manutenção  
+- Ideal para estudos e demonstrações rápidas  
+
+Toda a lógica pesada e funcionalidades avançadas estão na versão completa (link acima).
 
 ---
 
-## 🎯 Funcionalidades
+## 🧩 Versão Completa do Projeto
 
-### 📈 Análise de Dados
-- Processamento Big Data com Apache Spark
-- Médias móveis (7d, 30d, 90d, 200d)
-- Indicadores técnicos (RSI, MACD, Volatilidade)
+A versão profissional conta com:
 
-### 🤖 Machine Learning
-- **Prophet AI**: Previsão time-series
-- **Random Forest**: Ensemble learning
-- **Gradient Boosting**: Regressão avançada
+- Modelos de IA
+- Interface avançada
+- Mais gráficos
+- Mais rotinas internas
+- Estrutura robusta
+- Organização detalhada
 
-### 📊 Visualizações
-- Gráficos interativos Plotly
-- Candlestick charts
-- Dashboard profissional
-
-### 🌐 Fontes de Dados
-- Yahoo Finance API
-- Upload CSV
+🔗 **Acesse aqui:**  
+https://github.com/Crypto-AI-BD/Cripto-AI
 
 ---
 
-## 💻 Tecnologias
+## 👤 Autor
 
-- **Apache Spark 3.5.0** - Big Data processing
-- **Prophet 1.1.5** - Time series forecasting
-- **Scikit-learn 1.3.2** - Machine Learning
-- **Streamlit 1.29.0** - Web dashboard
-- **Plotly 5.18.0** - Interactive visualizations
-- **PyQt5 5.15.10** - Desktop application
+**Hugo Arcanjo Jacob**  
+Estudante de Sistemas de Informação | Desenvolvedor Python & Front-end  
+
+Se quiser, posso colocar seu LinkedIn também.
 
 ---
 
-## 📁 Estrutura
+## 📜 Licença
+Este projeto é de uso educacional.  
+A versão completa segue a licença do repositório oficial do grupo.
 
-```
-bigdata-2/
-├── app.py                 # Dashboard web
-├── modern_theme.py        # Tema visual
-├── requirements.txt       # Dependências
-├── config/               # Configurações
-├── src/                  # Código principal
-│   ├── data_ingestion.py
-│   ├── spark_processor.py
-│   └── utils.py
-├── models/               # ML Models
-│   ├── prophet_model.py
-│   └── sklearn_model.py
-├── visualizations/       # Gráficos
-├── desktop_app/          # App desktop
-├── notebooks/            # Jupyter notebooks
-└── data/                 # Dados
-```
-
----
-
-## 🚀 Como Usar
-
-### Dashboard Web
-```powershell
-streamlit run app.py
-```
-
-### Desktop App
-```powershell
-python desktop_app/main.py
-```
-
-### Notebooks
-```powershell
-jupyter notebook notebooks/
-```
-
----
-
-## 📊 Workflow
-
-1. **Selecionar Fonte**: Yahoo Finance ou CSV
-2. **Escolher Cripto**: BTC, ETH, ADA, SOL, BNB, XRP
-3. **Definir Período**: 1-10 anos ou máximo
-4. **Carregar Dados**: Click "Load Data"
-5. **Analisar**: Navegue pelas tabs
-   - Overview
-   - Technical Analysis
-   - ML Predictions
-   - Visualizations
-
----
-
-## 🤖 Machine Learning
-
-### Prophet
-- Detecção de sazonalidade
-- Previsões 30-90 dias
-- Intervalos de confiança
-
-### Scikit-learn
-- Linear/Ridge/Lasso Regression
-- Random Forest
-- Gradient Boosting
-- Features: lags, MAs, volatilidade
-
----
-
-## ⚙️ Configuração
-
-### Spark (opcional)
-- Instalar Java 8 ou 11
-- Sistema usa Pandas como fallback
-
-### Prophet (Windows)
-```powershell
-pip install pystan==2.19.1.1
-pip install prophet==1.1.5
-```
-
----
-
-## 🐛 Troubleshooting
-
-**Porta em uso:**
-```powershell
-streamlit run app.py --server.port=8502
-```
-
-**Spark não disponível:**
-- Sistema funciona sem Spark (usa Pandas)
-
----
-
-## 📦 Dependências
-
-```
-apache-spark==3.5.0
-pyspark==3.5.0
-prophet==1.1.5
-scikit-learn==1.3.2
-streamlit==1.29.0
-plotly==5.18.0
-PyQt5==5.15.10
-yfinance==0.2.32
-pandas>=2.0.0
-numpy>=1.24.0
-```
-
----
-
-## 🎓 Projeto Acadêmico
-
-### Requisitos Atendidos
-✅ Big Data (Apache Spark)  
-✅ Machine Learning (Prophet + scikit-learn)  
-✅ Visualizações (Plotly)  
-✅ Interface profissional  
-✅ Documentação completa  
-
----
-
-<div align="center">
-
-**📊 Crypto Analytics Platform**
-
-*Big Data • Machine Learning • Real-Time Analysis*
-
-</div>
