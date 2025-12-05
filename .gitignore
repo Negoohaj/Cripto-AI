@@ -1,0 +1,22 @@
+# Ambiente virtual
+.venv/
+venv/
+
+# Cache do Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Pastas e arquivos do VS Code
+.vscode/
+
+# Arquivos grandes e desnecessários
+*.log
+
+# Streamlit
+.streamlit/
+
+# Sistema operacional
+.DS_Store
+Thumbs.db
